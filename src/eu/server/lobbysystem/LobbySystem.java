@@ -29,14 +29,14 @@ public class LobbySystem extends JavaPlugin {
 		instance = this;
 		
 		loadConfig();
-		loadCommands();
 		loadStrings();
+		loadCommands();
 		loadEvents();
 		
 		this.getServer().getConsoleSender().sendMessage("[LobbySystem] Das Plugin wurde erfolgreich aktiviert!");
 		
-		if (LocationAPI.getLocation("spawn") != null) {
-            Location spawn = LocationAPI.getLocation("spawn");
+		if (LocationAPI.getLocation("lobby") != null) {
+            Location spawn = LocationAPI.getLocation("lobby");
 
             spawn.getWorld().setTime(6000);
             spawn.getWorld().setGameRuleValue("doDaylightCircle", "false");
@@ -98,8 +98,8 @@ public class LobbySystem extends JavaPlugin {
 	}
 	
 	
-	public LobbySystem getInstance() {
-		return getInstance();
-	}
+	public static LobbySystem getInstance() {
 
+        return instance;
+	}
 }
