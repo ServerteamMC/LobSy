@@ -1,0 +1,10 @@
+main: eu.server.lobbysystem.LobbySystem
+name: LobbySystem
+version: 1.0
+author: Black_Hunters
+
+commands:
+     lobby:
+          description: Gelange zur Lobby!
+     setlobby:
+          description: Setze die Lobby!
