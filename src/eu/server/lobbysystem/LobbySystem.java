@@ -24,10 +24,9 @@ public class LobbySystem extends JavaPlugin {
 	public static String lobbyset;
 	
 	
+	@Override
 	public void onEnable() {
-		
-		instance = this;
-		
+	
 		loadConfig();
 		loadStrings();
 		loadCommands();
@@ -45,9 +44,8 @@ public class LobbySystem extends JavaPlugin {
 	}
 	
 	
+	@Override
 	public void onDisable() {
-		
-		instance = null;
 		
 		this.getServer().getConsoleSender().sendMessage("[LobbySystem] Das Plugin wurde deaktiviert!");
 	}
@@ -95,11 +93,5 @@ public class LobbySystem extends JavaPlugin {
 		getCommand("lobby").setExecutor(new CMD_lobby());
 		getCommand("setlobby").setExecutor(new CMD_setlobby());
 		
-	}
-	
-	
-	public static LobbySystem getInstance() {
-
-        return instance;
 	}
 }
