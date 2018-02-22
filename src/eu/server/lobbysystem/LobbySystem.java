@@ -25,10 +25,9 @@ public class LobbySystem extends JavaPlugin {
 	
 	
 	@Override
-	public void onEnable() {
-	
-		loadConfig();
+	public void onEnable() {	
 		loadStrings();
+		loadConfig();
 		loadCommands();
 		loadEvents();
 		
@@ -52,7 +51,6 @@ public class LobbySystem extends JavaPlugin {
 	
 	
 	public void loadConfig() {
-		
 		getConfig().addDefault(prefix, "§7[§6Lobby§7] ");
 		getConfig().addDefault(noperms,"§cDazu hast du keine Rechte!");
 		getConfig().addDefault(lobbysuccessful, "§aDu bist nun in der Lobby!");
