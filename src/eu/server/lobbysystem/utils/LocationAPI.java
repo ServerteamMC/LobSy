@@ -10,7 +10,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 public class LocationAPI {
 
-	public static File file = new File("plugins/LobbySys", "locations.yml");
+	public static File file = new File("plugins/LobbySystem", "locations.yml");
 	public static FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
 
 	public static void setLocation(Location loc, String name) {

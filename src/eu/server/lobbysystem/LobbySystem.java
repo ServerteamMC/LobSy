@@ -13,7 +13,7 @@ import eu.server.lobbysystem.utils.LocationAPI;
 public class LobbySystem extends JavaPlugin {
 	
 	
-	public static String prefix = "&7[&6Lobby&7]";
+	public static String prefix = "§7[§6Lobby§7] ";
 	
 	
 	@Override
