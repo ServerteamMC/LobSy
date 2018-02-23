@@ -6,7 +6,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import eu.server.lobbysystem.commands.CMD_lobby;
 import eu.server.lobbysystem.commands.CMD_setlobby;
+import eu.server.lobbysystem.events.EVENT_food;
 import eu.server.lobbysystem.events.EVENT_join;
+import eu.server.lobbysystem.events.EVENT_nodamage;
 import eu.server.lobbysystem.events.EVENT_quit;
 import eu.server.lobbysystem.utils.LocationAPI;
 
@@ -46,7 +48,8 @@ public class LobbySystem extends JavaPlugin {
     	
     	Bukkit.getPluginManager().registerEvents(new EVENT_join(), this);
     	Bukkit.getPluginManager().registerEvents(new EVENT_quit(), this);
-    	
+    	Bukkit.getPluginManager().registerEvents(new EVENT_nodamage(), this);
+    	Bukkit.getPluginManager().registerEvents(new EVENT_food(), this);
     }
     
 	

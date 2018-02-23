@@ -15,10 +15,10 @@ public class EVENT_join implements Listener {
 
         e.setJoinMessage(null);
         
-        p.setMaxHealth(10);
+        p.setMaxHealth(6);
         p.setLevel(0);
         p.setExp(0);
-        p.setHealth(10);
+        p.setHealth(6);
         p.setFoodLevel(20);
         p.setGameMode(GameMode.ADVENTURE);
         p.getInventory().clear();
