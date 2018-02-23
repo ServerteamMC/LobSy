@@ -3,6 +3,7 @@ package eu.server.lobbysystem;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.spigotmc.Metrics;
 
 import eu.server.lobbysystem.commands.CMD_lobby;
 import eu.server.lobbysystem.commands.CMD_setlobby;
@@ -26,10 +27,12 @@ public class LobbySystem extends JavaPlugin {
 	
 	@Override
 	public void onEnable() {	
-		loadStrings();
-		loadConfig();
-		loadCommands();
-		loadEvents();
+		
+		 loadConfig();
+		 loadStrings();
+	     loadCommands();
+	     loadEvents();
+
 		
 		this.getServer().getConsoleSender().sendMessage("[LobbySystem] Das Plugin wurde erfolgreich aktiviert!");
 		
@@ -45,6 +48,8 @@ public class LobbySystem extends JavaPlugin {
 	
 	@Override
 	public void onDisable() {
+		
+		instance = null;
 		
 		this.getServer().getConsoleSender().sendMessage("[LobbySystem] Das Plugin wurde deaktiviert!");
 	}
@@ -91,5 +96,10 @@ public class LobbySystem extends JavaPlugin {
 		getCommand("lobby").setExecutor(new CMD_lobby());
 		getCommand("setlobby").setExecutor(new CMD_setlobby());
 		
+	}
+	
+	public static LobbySystem getInstance() {
+
+    return instance;
 	}
 }
