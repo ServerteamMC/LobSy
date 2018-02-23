@@ -3,7 +3,6 @@ package eu.server.lobbysystem;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.spigotmc.Metrics;
 
 import eu.server.lobbysystem.commands.CMD_lobby;
 import eu.server.lobbysystem.commands.CMD_setlobby;
@@ -13,23 +12,13 @@ import eu.server.lobbysystem.utils.LocationAPI;
 
 public class LobbySystem extends JavaPlugin {
 	
-	public static LobbySystem instance;
 	
-	public static String prefix;
-	
-	public static String noperms;
-	public static String lobbysuccessful;
-	public static String lobbyfailed;
-	public static String lobbyexists;
-	public static String setlobbyhelp;
-	public static String lobbyset;
+	public static String prefix = "&7[&6Lobby&7]";
 	
 	
 	@Override
 	public void onEnable() {	
 		
-		 loadConfig();
-		 loadStrings();
 	     loadCommands();
 	     loadEvents();
 
@@ -49,39 +38,9 @@ public class LobbySystem extends JavaPlugin {
 	@Override
 	public void onDisable() {
 		
-		instance = null;
-		
 		this.getServer().getConsoleSender().sendMessage("[LobbySystem] Das Plugin wurde deaktiviert!");
 	}
-	
-	
-	public void loadConfig() {
-		getConfig().addDefault(prefix, "§7[§6Lobby§7] ");
-		getConfig().addDefault(noperms,"§cDazu hast du keine Rechte!");
-		getConfig().addDefault(lobbysuccessful, "§aDu bist nun in der Lobby!");
-		getConfig().addDefault(lobbyfailed, "§cDu konntest nicht mit der Lobby verbunden werden!");
-		getConfig().addDefault(lobbyexists, "§cDer Lobbyspawn existiert bereits!");
-		getConfig().addDefault(setlobbyhelp, "§cUm den Lobbyspawn zu setzen, benutze /setlobby!");
-		getConfig().addDefault(lobbyset, "§cDer Spawn wurde erfolgreich gesetzt!");
-		
-		getConfig().options().copyDefaults(true);
-        saveConfig();
-        reloadConfig();
-	}
-	
-	
-    public void loadStrings() {
-    	
-    	prefix = getConfig().getString("prefix").replaceAll("&", "§");
-        noperms = prefix + getConfig().getString("noperms").replaceAll("&", "§").replaceAll("%prefix%", prefix);
-        lobbysuccessful = prefix  + getConfig().getString("lobbysuccessfull").replaceAll("&", "§").replaceAll("%prefix%", prefix);
-        lobbyfailed = prefix + getConfig().getString("lobbyfailed").replaceAll("&", "§").replaceAll("%prefix%", prefix);
-        lobbyexists = prefix + getConfig().getString("lobbyexists").replaceAll("&", "§").replaceAll("%prefix%", prefix);
-        setlobbyhelp = prefix + getConfig().getString("setlobbyhelp").replaceAll("&", "§").replaceAll("%prefix%", prefix);
-        lobbyset = prefix + getConfig().getString("lobbyset").replaceAll("&", "§").replaceAll("%prefix%", prefix);
-		
-	}
-    
+	    
     
     public void loadEvents() {
     	
@@ -98,8 +57,4 @@ public class LobbySystem extends JavaPlugin {
 		
 	}
 	
-	public static LobbySystem getInstance() {
-
-    return instance;
-	}
 }

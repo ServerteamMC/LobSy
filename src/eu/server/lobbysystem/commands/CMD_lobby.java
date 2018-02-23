@@ -20,11 +20,11 @@ public class CMD_lobby implements CommandExecutor {
                 Location loc = LocationAPI.getLocation("lobby");
 
                 p.teleport(loc);
-                p.sendMessage(LobbySystem.lobbysuccessful);
+                p.sendMessage(LobbySystem.prefix + "&aDu bist nun in der Lobby!");
                 p.playSound(loc, Sound.FIREWORK_BLAST, 1, 1);
 
             } else {
-                p.sendMessage(LobbySystem.lobbyfailed);
+                p.sendMessage(LobbySystem.prefix + "&cDu konntest nicht mit der Lobby verbunden werden!");
                 p.closeInventory();
             }
 

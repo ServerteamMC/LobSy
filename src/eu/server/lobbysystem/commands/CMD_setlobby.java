@@ -16,17 +16,17 @@ public class CMD_setlobby implements CommandExecutor {
         if(p.hasPermission("lobby.setlobby")) {
             if(args.length == 0) {
                 if(LocationAPI.locationExists("lobby")){
-                    p.sendMessage(LobbySystem.lobbyexists);
+                    p.sendMessage(LobbySystem.prefix + "&aDie Lobby wurde bereits gesetzt!");
                     return false;
                 }
                 LocationAPI.setLocation(p.getLocation(), "lobby");
-                p.sendMessage(LobbySystem.lobbyset);
+                p.sendMessage(LobbySystem.prefix + "&cDer Spawn wurde erfolgreich gesetzt!");
 
             } else {
-             p.sendMessage(LobbySystem.setlobbyhelp);
+             p.sendMessage(LobbySystem.prefix + "&cUm den Lobbyspawn zu setzen, benutze /setlobby!");
             }
         }else {
-            p.sendMessage(LobbySystem.noperms);
+            p.sendMessage(LobbySystem.prefix + "&cDazu hast du keine Rechte!");
         }
 
         return true;
